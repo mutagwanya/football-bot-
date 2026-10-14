@@ -12,9 +12,6 @@ async def handle_search(update: Update, context: ContextTypes.DEFAULT_TYPE):
 
 def main():
     print("BOT @muta_748_bot RUNNING - V3 Best Odds + Prediction...")
-    if not BOT_TOKEN or BOT_TOKEN == "test":
-        print("No real token - test OK, green build")
-        return
     app = Application.builder().token(BOT_TOKEN).build()
     app.add_handler(CommandHandler("start", start))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_search))
