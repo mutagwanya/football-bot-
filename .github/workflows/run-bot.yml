@@ -8,7 +8,5 @@ jobs:
             - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-            - name: Install deps
-        run: pip install -r football/requirements.txt
-            - name: Check syntax
-        run: python -m py_compile football/main.py && echo "OK - Reorg SUCCESS"
+            - run: pip install -r football/requirements.txt
+            - run: python -m py_compile football/main.py && echo "OK"
