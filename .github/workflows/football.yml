@@ -12,8 +12,10 @@ jobs:
         with:
           python-version: '3.11'
       - name: Install deps
+        working-directory: football
         run: pip install -r requirements.txt
-      - name: Run bot
+      - name: Run football bot
+        working-directory: football
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: python main.py
