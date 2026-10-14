@@ -1,5 +1,5 @@
 services:
-    - type: pserv
+    - type: web
     name: muta-748-bot
     env: python
     plan: free
