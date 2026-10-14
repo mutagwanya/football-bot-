@@ -1,21 +1,23 @@
-name: football-bot
+name: Football Bot
+
 on:
-  schedule:
-    - cron: '*/15 * * * *'
+  push:
+    branches: [ main ]
   workflow_dispatch:
+
 jobs:
-  run:
+  run-bot:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: actions/setup-python@v6
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Install
-        working-directory: football
+      - name: Install deps
         run: pip install -r football/requirements.txt || pip install python-telegram-bot requests python-dotenv
       - name: Run
         working-directory: football
         env:
           BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.BOT_TOKEN }}
         run: python main.py
