@@ -92,7 +92,7 @@ def main():
     app.add_handler(CommandHandler("top5",top5_command))
     app.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, handle_search))
     print("BOT @muta_748_bot RUNNING - V3 Best Odds + Prediction...")
-    app.run_polling()
+    # app.run_polling() - disabled for test
 
 if __name__=="__main__":
     main()
