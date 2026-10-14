@@ -1,0 +1,10 @@
+services:
+    - type: pserv
+    name: muta-748-bot
+    env: python
+    plan: free
+    buildCommand: pip install -r football/requirements.txt
+    startCommand: python football/main.py
+    envVars:
+            - key: BOT_TOKEN
+        sync: false
